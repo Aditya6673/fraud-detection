@@ -1,0 +1,92 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "FraudDecision",
+  "type": "object",
+  "properties": {
+    "schemaVersion": {
+      "type": "string",
+      "enum": ["1.0.0"]
+    },
+    "traceId": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "transactionId": {
+      "type": "string"
+    },
+    "customerId": {
+      "type": "string"
+    },
+    "cardId": {
+      "type": "string"
+    },
+    "amount": {
+      "type": "number"
+    },
+    "currency": {
+      "type": "string",
+      "enum": ["USD", "EUR", "GBP", "JPY", "CAD"]
+    },
+    "merchant": {
+      "type": "string"
+    },
+    "merchantCategory": {
+      "type": "string"
+    },
+    "location": {
+      "type": "string"
+    },
+    "transactionTimestamp": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "anomalyScore": {
+      "type": "number"
+    },
+    "riskScore": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 100
+    },
+    "status": {
+      "type": "string",
+      "enum": ["APPROVED", "REVIEW", "BLOCKED"]
+    },
+    "reasons": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "modelVersion": {
+      "type": "string"
+    },
+    "mlAvailable": {
+      "type": "boolean"
+    },
+    "decidedAt": {
+      "type": "string",
+      "format": "date-time"
+    }
+  },
+  "required": [
+    "schemaVersion",
+    "traceId",
+    "transactionId",
+    "customerId",
+    "cardId",
+    "amount",
+    "currency",
+    "merchant",
+    "merchantCategory",
+    "location",
+    "transactionTimestamp",
+    "anomalyScore",
+    "riskScore",
+    "status",
+    "reasons",
+    "modelVersion",
+    "mlAvailable",
+    "decidedAt"
+  ]
+}

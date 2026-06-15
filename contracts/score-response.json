@@ -1,0 +1,44 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "ScoreResponse",
+  "type": "object",
+  "properties": {
+    "transactionId": {
+      "type": "string"
+    },
+    "riskScore": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 100
+    },
+    "status": {
+      "type": "string",
+      "enum": ["APPROVED", "REVIEW", "BLOCKED"]
+    },
+    "reasons": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "modelVersion": {
+      "type": "string"
+    },
+    "mlAvailable": {
+      "type": "boolean"
+    },
+    "timestamp": {
+      "type": "string",
+      "format": "date-time"
+    }
+  },
+  "required": [
+    "transactionId",
+    "riskScore",
+    "status",
+    "reasons",
+    "modelVersion",
+    "mlAvailable",
+    "timestamp"
+  ]
+}
